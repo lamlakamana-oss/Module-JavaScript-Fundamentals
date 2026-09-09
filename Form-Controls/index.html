@@ -13,15 +13,24 @@
     </header>
     <main>
       <form>
-        <!-- write your html here-->
         <!-- 
-          try writing out the requirements first as comments
-        this will also help you fill in your PR message later-->
+        Requirements:
+    - Name: required, at least 2 non-space characters
+    - Email: required, valid email format
+    - Colour: required, choose 1 of 3 options
+    - Size: required, choose 1 of 6 sizes
+    - No form action needed for this project
+  -->
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" pattern=".*\S.*\S.*" required>
+    </div>
+    <button type="submit">Submit</button>
       </form>
     </main>
     <footer>
       <!-- change to your name-->
-      <p>By HOMEWORK SOLUTION</p>
+      <p>By Lamla Kamana</p>
     </footer>
   </body>
 </html>
