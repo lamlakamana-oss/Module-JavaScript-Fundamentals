@@ -27,8 +27,11 @@ console.log(`The percentage change is ${percentageChange}`);
 //    Line 10: console.log(...)
 //
 // b) The error showed up on Line 5. It said "SyntaxError: missing ) after
-//    argument list". That just means I had one too many closing brackets ( ) )
-//    at the end of that line.
+//    argument list". This happened because there was a missing comma between
+//    the two arguments inside .replaceAll("," "") — JavaScript needs a comma
+//    separating each argument in a function call. Without it, JavaScript
+//    couldn't tell where one argument ended and the next began, so it
+//    reported a missing ), even though the real issue was the missing comma.
 //
 // c) There are 2 lines where a variable gets a new value (reassignment):
 //    Line 4: carPrice = ...
