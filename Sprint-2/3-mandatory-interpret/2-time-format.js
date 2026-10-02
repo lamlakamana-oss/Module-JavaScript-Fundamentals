@@ -21,7 +21,12 @@ console.log(formattedMovieLength);
 // d) Interpret line 4, what does the expression assigned to totalMinutes mean?
 
 // e) What do you think the variable result represents? Can you think of a better name for this variable?
-
+// ANSWER: It represents the movie length written as a time string in
+//         hours:minutes:seconds format. For 8784 seconds it gives "2:26:24".
+//
+// Better name: formattedMovieLength
+//         It says what the value is (the movie length) and that it is
+//         formatted as a time, which is clearer than "result".
 // f) Try experimenting with different values of movieLength. Will this code work for all values of movieLength? Explain your answer
 
 // ─────────────────────────────────────────────────────────────
