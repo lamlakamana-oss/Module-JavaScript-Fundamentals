@@ -3,20 +3,33 @@
 // Your task is to write tests for as many different groups of input data or edge cases as you can, and fix any bugs you find.
 
 function formatAs12HourClock(time) {
-  const hours = Number(time.slice(0, 2));
-  if (hours > 12) {
-    return `${hours - 12}:00 pm`;
-  }
-  return `${time} am`;
-}
+  // Split "08:00" into hours "08" and minutes "00"
+  const [hourString, minutes] = time.split(":");
+  let hours = Number(hourString);
 
+  // Determine if it is AM or PM
+  const period = hours >= 12 ? "pm" : "am";
+
+  // Convert 24-hour format to 12-hour format
+  if (hours === 0) {
+    hours = 12; // Midnight (00:xx) becomes 12:xx am
+  } else if (hours > 12) {
+    hours = hours - 12; // Afternoon/evening (13:xx - 23:xx) becomes 1:xx - 11:xx pm
+  }
+
+  // Pad the hours with a leading zero if needed (e.g., "8" becomes "08")
+  const paddedHours = hours.toString().padStart(2, "0");
+
+  return `${paddedHours}:${minutes} ${period}`;
+}
+// Test 1: Morning time
 const currentOutput = formatAs12HourClock("08:00");
 const targetOutput = "08:00 am";
 console.assert(
   currentOutput === targetOutput,
   `current output: ${currentOutput}, target output: ${targetOutput}`
 );
-
+// Test 2: Evening time
 const currentOutput2 = formatAs12HourClock("23:00");
 const targetOutput2 = "11:00 pm";
 console.assert(
@@ -57,4 +70,27 @@ const targetOutput6 = "12:00 am";
 console.assert(
   currentOutput6 === targetOutput6,
   `Midnight Test Failed -> current output: ${currentOutput6}, target output: ${targetOutput6}`
+);
+// Test 7: Noon edge case (12:30)
+const currentOutput7 = formatAs12HourClock("12:30");
+const targetOutput7 = "12:30 pm";
+console.assert(
+  currentOutput7 === targetOutput7,
+  `Noon Test Failed -> current: ${currentOutput7}, target: ${targetOutput7}`
+);
+
+// Test 8: Midnight edge case (00:30)
+const currentOutput8 = formatAs12HourClock("00:30");
+const targetOutput8 = "12:30 am";
+console.assert(
+  currentOutput8 === targetOutput8,
+  `Midnight Test Failed -> current: ${currentOutput8}, target: ${targetOutput8}`
+);
+
+// Test 9: Last minute of the day (23:59)
+const currentOutput9 = formatAs12HourClock("23:59");
+const targetOutput9 = "11:59 pm";
+console.assert(
+  currentOutput9 === targetOutput9,
+  `Late Night Test Failed -> current: ${currentOutput9}, target: ${targetOutput9}`
 );
