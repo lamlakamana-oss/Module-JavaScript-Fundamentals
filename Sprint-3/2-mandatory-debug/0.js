@@ -13,7 +13,7 @@ console.log(`The result of multiplying 10 and 32 is ${multiply(10, 32)}`);
 
 // =============> write your explanation here
 // multiply only logs a * b to the console. It has no return statement, so
-// multiply(10, 32) evaluates to undefined. The template string on line 12
+// multiply(10, 32) evaluates to undefined. The template string in the console.log
 // puts that undefined into the sentence. The 320 appears on its own line
 // because console.log runs inside the function.
 
