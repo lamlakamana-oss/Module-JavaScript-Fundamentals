@@ -16,9 +16,8 @@ function toPounds(penceString) {
     paddedPenceNumberString.length - 2
   );
 
-  const pence = paddedPenceNumberString
-    .substring(paddedPenceNumberString.length - 2)
-    .padEnd(2, "0");
+   const pence = paddedPenceNumberString
+    .substring(paddedPenceNumberString.length - 2);
 
   return `£${pounds}.${pence}`;
 }
